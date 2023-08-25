@@ -1,0 +1,1 @@
+web: gunicorn testefotos.wsgi --log-file -

@@ -1,0 +1,7 @@
+# Default ignored files
+venv
+virtual
+*.sqlite3
+.idea
+/shelf/
+/workspace.xml
