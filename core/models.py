@@ -11,6 +11,7 @@ class FotosCasamento(models.Model):
     #a foto vai ter comentarios e curtidas
     comentarios = models.ManyToManyField(Comentarios, blank=True)
     curtidas = models.ManyToManyField(Curtidas, blank=True)
+    quatidade_de_curtidas = models.IntegerField(default=0)
     foto = models.ImageField(upload_to='fotos_casamento', null=True, blank=True)
     def __str__(self):
         return self.nome

@@ -5,6 +5,7 @@ from rest_framework.permissions import IsAuthenticated,IsAdminUser,IsAuthenticat
 from rest_framework.authentication import TokenAuthentication
 from rest_framework import status
 from rest_framework.response import Response
+from rest_framework.decorators import action
 
 
 
@@ -55,25 +56,42 @@ class FotosCasamentoViewSet(ModelViewSet):
     acho que vou usar para editar comentarios nas fotos
     coisa que o instagram não permite hehe
     """
-    def update(self, request, *args, **kwargs):
-        pass
-
+    
      # Método para criar uma nova foto (POST)
-    """
+    
     def create(self, request, *args, **kwargs):
-        if request.user.is_superuser:
-                serializer = self.get_serializer(data=request.data)
-                serializer.is_valid(raise_exception=True)
-                self.perform_create(serializer)
-                headers = self.get_success_headers(serializer.data)
-                return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
-        else:
-            return Response({"detail": "Você não tem permissão para criar fotos."}, status=status.HTTP_403_FORBIDDEN)
+        if not request.user.is_superuser:
+            request.data['aprovada'] = False
+
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        self.perform_create(serializer)
+        headers = self.get_success_headers(serializer.data)
+        return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
+
     # Método para deletar uma foto (DELETE)
+    """
     def destroy(self, request, *args, **kwargs):
         if request.user.is_superuser:
             return super().destroy(request, *args, **kwargs)
         else:
             return Response({"detail": "Você não tem permissão para deletar fotos."}, status=status.HTTP_403_FORBIDDEN)
     """
-    
+    #so quem vai poder aprovar a foto é o admin
+    @action(methods=['put'], detail=True)
+    def associa_likes(self, request, pk):
+        if request.user.is_superuser:
+            id_da_foto = FotosCasamento.objects.get(id=pk).first()
+            id_da_foto.aprovada = request.data['aprovada']
+            id_da_foto.save()
+
+    @action(methods=['post'], detail=True)
+    def associa_likes(self, request, pk):
+        id_da_foto = FotosCasamento.objects.get(id=pk).first()
+        id_da_foto.quatidade_de_curtidas += 1
+        id_da_foto.save()
+
+    @action(methods=['post'], detail=True)
+    def associa_comentarios(self, request, pk):
+        id_da_foto = FotosCasamento.objects.get(id=pk).first()
+        id_da_foto.comentarios = request.data['comentarios']
