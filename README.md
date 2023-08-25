@@ -1,22 +1,18 @@
 # Galeria de Amigos API 📸
 
-Bem-vindo ao repositório da API da Galeria de Amigos! 
-Aqui, você encontrará o código que ajuda a resolver um problemão: 
-criar uma galeria de fotos para o casamento do seu amigo. Vamos te contar mais:
+Bem-vindo ao repositório da API da Galeria de Amigos! Aqui, você encontrará o código que ajuda a resolver um problemão: criar uma galeria de fotos para o casamento do seu amigo. Vamos te contar mais:
 
 ## O Desafio
-O seu amigo está prestes a se casar e te pediu uma ajuda: 
-criar uma maneira de todos os amigos compartilharem as fotos do casamento. 
-Parece legal, né? Mas tem um detalhe, só `ele e o cônjuge podem aprovar` 
-as fotos antes de todo mundo ver. Além disso, curtidas e comentários nas fotos seriam demais!
+O seu amigo está prestes a se casar e te pediu uma ajuda: criar uma maneira de todos os amigos compartilharem as fotos do casamento. Parece legal, né? Mas tem um detalhe, só `ele e o cônjuge podem aprovar` as fotos antes de todo mundo ver. Além disso, curtidas e comentários nas fotos seriam demais!
+
 ## Funcionalidades ✨
 
 Esta API oferece os seguintes recursos:
 
-- Listagem de todas as fotos: `GET`  [todas_as_fotos](https://testefotos-df3cf30201b0.herokuapp.com/fotoscasamento/)
-- Listagem de todas as curtidas: `GET`  [todas_as_curtidas](https://testefotos-df3cf30201b0.herokuapp.com/curtidas/)
-- Listagem de todos os comentarios: `GET`  [comentarios](https://testefotos-df3cf30201b0.herokuapp.com/comentarios/)
-- Tela de Login: `POST`  [login](https://testefotos-df3cf30201b0.herokuapp.com/admin/)
+- Listagem de todas as fotos: `GET` [todas_as_fotos](https://testefotos-df3cf30201b0.herokuapp.com/fotoscasamento/)
+- Listagem de todas as curtidas: `GET` [todas_as_curtidas](https://testefotos-df3cf30201b0.herokuapp.com/curtidas/)
+- Listagem de todos os comentários: `GET` [comentários](https://testefotos-df3cf30201b0.herokuapp.com/comentarios/)
+- Tela de Login: `POST` [login](https://testefotos-df3cf30201b0.herokuapp.com/admin/)
 
 ## Tecnologias Utilizadas 🛠️
 
