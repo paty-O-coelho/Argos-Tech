@@ -14,6 +14,6 @@ from dj_static import Cling
 
 application = Cling(get_wsgi_application())
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "teste_fotos.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "testefotos.settings")
 
 application = get_wsgi_application()

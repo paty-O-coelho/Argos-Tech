@@ -1,1 +1,1 @@
-web: gunicorn teste_fotos.wsgi --log-file -
+web: gunicorn testefotos.wsgi --log-file -
