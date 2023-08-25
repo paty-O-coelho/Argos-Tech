@@ -69,11 +69,11 @@ class FotosCasamentoViewSet(ModelViewSet):
                 return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
         else:
             return Response({"detail": "Você não tem permissão para criar fotos."}, status=status.HTTP_403_FORBIDDEN)
-    """
     # Método para deletar uma foto (DELETE)
     def destroy(self, request, *args, **kwargs):
         if request.user.is_superuser:
             return super().destroy(request, *args, **kwargs)
         else:
             return Response({"detail": "Você não tem permissão para deletar fotos."}, status=status.HTTP_403_FORBIDDEN)
+    """
     
